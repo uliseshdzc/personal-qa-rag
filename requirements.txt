@@ -1,0 +1,12 @@
+faiss-cpu==1.11.0
+fastapi==0.115.12
+fastapi-injector==0.8.0
+injector==0.22.0
+langchain==0.3.25
+langchain-community==0.3.23
+langchain-openai==0.3.16
+openai==1.78.0
+pip-system-certs
+pydantic-settings==2.9.1
+tiktoken==0.9.0
+uvicorn==0.34.2
