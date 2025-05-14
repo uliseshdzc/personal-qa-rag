@@ -1,11 +1,10 @@
 from functools import cache
 
-import httpx
 import requests
 import yaml
 from injector import singleton
 from langchain.docstore.document import Document
-from langchain_community.vectorstores import FAISS
+from langchain_community.vectorstores import Chroma
 from langchain_openai.embeddings import OpenAIEmbeddings
 
 
@@ -28,6 +27,6 @@ class RAGService:
         documents = [Document(page_content=chunk) for chunk in text_chunks]
 
         embeddings = OpenAIEmbeddings()
-        vector_store = FAISS.from_documents(documents, embeddings)
+        vector_store = Chroma.from_documents(documents, embeddings)
 
         return vector_store
