@@ -40,7 +40,7 @@ jobs:
           docker rm personal-qa-rag || true
           docker run -d \
             --name personal-qa-rag \
-            -p 80:8000 \
+            -p 8000:8000 \
             -e OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} \
             -e SOURCE_URL=${{ secrets.SOURCE_URL }} \
             -e VERSION=${{ github.ref_name }} \
