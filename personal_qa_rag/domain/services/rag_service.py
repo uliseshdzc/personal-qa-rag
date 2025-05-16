@@ -4,7 +4,7 @@ import requests
 import yaml
 from injector import singleton
 from langchain.docstore.document import Document
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import InMemoryVectorStore
 from langchain_openai.embeddings import OpenAIEmbeddings
 
 
@@ -27,6 +27,6 @@ class RAGService:
         documents = [Document(page_content=chunk) for chunk in text_chunks]
 
         embeddings = OpenAIEmbeddings()
-        vector_store = Chroma.from_documents(documents, embeddings)
+        vector_store = InMemoryVectorStore.from_documents(documents, embeddings)
 
         return vector_store

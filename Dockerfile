@@ -4,12 +4,10 @@ WORKDIR /app
 
 COPY requirements.txt .
 
-# Required for Cargo
-RUN apk add --no-cache rust cargo
 RUN pip install --upgrade pip
-RUN pip install --no-cache-dir --default-timeout=100 --root-user-action -r requirements.txt
+RUN pip install --no-cache-dir --default-timeout=100 -r requirements.txt
 
-COPY personal_qa_rag .
+COPY personal_qa_rag ./personal_qa_rag
 
 EXPOSE 8000
 
